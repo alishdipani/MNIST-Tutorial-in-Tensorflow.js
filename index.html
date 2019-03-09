@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <!-- Import TensorFlow.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.0.0/dist/tf.min.js"></script>
+    <!-- Import Chart.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+    <!-- Import tfjs-vis -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-vis@1.0.0/dist/tfjs-vis.umd.min.js"></script>
+    <script src="mainScript.js"></script>
+    <title>MNIST Tutorial</title>
+    <center><b><font size="15">MNIST Tutorial</font></b></center>
+  </head>
+  <body>
+    <center> <button type="button" onclick="loadData()">Load Dataset</button></center>
+    <center><b><font size="7">Model</font></b></center>
+    <p> <b>Input Layer : </b> input size : 28*28*1 </p>
+    <p> <b>Hidden Convolutional Layer : </b> <br>
+      Enter Kernel size <input type="number" id="kernelSize" value="2">  <br>
+      Enter number of filters size <input type="number" id="numFilters" value="5">  <br>
+      Enter Stride : <input type="number" id="stride" value="2"> <br>
+      Enter Activation : <select id="convAct">
+        <option value="relu">ReLU</option>
+        <option value="sigmoid">Sigmoid</option>
+        <option value="tanh">Tanh</option>
+      </select> <br>
+      <button type="button" onclick="addConvLayer()">Add Layer</button> <br>
+    </p>
+    <p> <b>Hidden Fully connected Layer :</b>
+      Enter number of units : <input type="number" id="numUnits" value="1"> <br>
+      Enter Activation : <select id="linAct">
+        <option value="relu">ReLU</option>
+        <option value="sigmoid">Sigmoid</option>
+        <option value="tanh">Tanh</option>
+      </select> <br>
+      <button type="button" onclick="addLinearLayer()">Add Layer</button> <br>
+    </p>
+    <p> <b>Output Layer : </b> Output size : 10 <button type="button" onclick="addOutputLayer()">Add Output Layer</button> </p>
+    <center><button type="button" onclick="visualize()">Visualize Random Example</button></center>
+    <center><b><font size="7">Training</font></b></center>
+    <p>
+      Enter the number of epochs: <input type="number" id="numEpochs" value="1"> <br>
+      Enter the batch size : <input type="number" id="batchSize" value="1">
+    </p>
+    <center><button type="button" onclick="trainModel()">Train</button></center>
+    <center><b><font size="7">Testing</font></b></center>
+    <!---
+    <center><button type="button" onclick="erase()">Clear Canvas</button></center> <br>
+    <body onload="init()">
+    <center>
+      <canvas id="can" width="28" height="28" style="border:2px solid;"></canvas>
+    </center>
+    </body>
+    <center><button type="button" onclick="predictDigit()">predict</button></center>
+    --->
+    <center> <button type="button" onclick="visualizeTest()">Test Random Example</button> </center>
+  </body>
+</html>
