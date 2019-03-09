@@ -1,5 +1,5 @@
-# MNIST-Tutorial-in-Tensorflow.js (![Live Example](https://alishdipani.github.io/MNIST-Tutorial-in-Tensorflow.js/))
-MNIST tutorial in browser using Tensorflow.js, for a live example ![click here](https://alishdipani.github.io/MNIST-Tutorial-in-Tensorflow.js/).
+# MNIST-Tutorial-in-Tensorflow.js ([Live Example]( https://alishdipani.github.io/MNIST-Tutorial-in-Tensorflow.js/ ))
+MNIST tutorial in browser using Tensorflow.js, for a live example [click here](https://alishdipani.github.io/MNIST-Tutorial-in-Tensorflow.js/).
 
 ## Instructions
 1. Load the Dataset.  
