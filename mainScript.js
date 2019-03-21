@@ -153,7 +153,7 @@ let AddingLinearLayers = false;
 const NUM_OUTPUT_CLASSES = 10;
 
 //Model for MNIST dataset
-const model = tf.sequential();
+let model = tf.sequential();
 
 async function addConvLayer(){
   let activationFunct;
@@ -238,7 +238,7 @@ async function visualize() {
         .slice([i, 0], [1, examples.xs.shape[1]])
         .reshape([28, 28, 1]);
     });
-    console.log(imageTensor.dataSync());
+    //console.log(imageTensor.dataSync());
     const probarray = tf.tidy(() => {
       return examples.labels
       .slice([i, 0], [1, examples.labels.shape[1]]);
@@ -300,9 +300,20 @@ async function trainModel() {
   });
 }
 
+async function saveModel(){
+  await model.save('downloads://MNIST-model')
+}
 
+//Model Loading
+async function loadedModelSummary(){
+  let uploadJSONInput = document.getElementById('upload-json');
+  let uploadWeightsInput = document.getElementById('upload-weights');
+  model = await tf.loadLayersModel(tf.io.browserFiles(
+    [uploadJSONInput.files[0], uploadWeightsInput.files[0]]));
+  tfvis.show.modelSummary({name:'Loaded Model Summary'}, model);
+}
 
-// // Canvas script
+// Canvas script
 let canvas, ctx, flag = false,
     prevX = 0,
     currX = 0,

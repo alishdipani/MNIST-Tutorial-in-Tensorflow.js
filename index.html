@@ -8,12 +8,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
     <!-- Import tfjs-vis -->
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-vis@1.0.0/dist/tfjs-vis.umd.min.js"></script>
+
     <script src="mainScript.js"></script>
+
     <title>MNIST Tutorial</title>
     <center><b><font size="15">MNIST Tutorial</font></b></center>
   </head>
+
   <body>
     <center> <button type="button" onclick="loadData()">Load Dataset</button></center>
+
     <center><b><font size="7">Model</font></b></center>
     <p> <b>Input Layer : </b> input size : 28*28*1 </p>
     <p> <b>Hidden Convolutional Layer : </b> <br>
@@ -38,12 +42,20 @@
     </p>
     <p> <b>Output Layer : </b> Output size : 10 <button type="button" onclick="addOutputLayer()">Add Output Layer</button> </p>
     <center><button type="button" onclick="visualize()">Visualize Random Example</button></center>
+
     <center><b><font size="7">Training</font></b></center>
     <p>
       Enter the number of epochs: <input type="number" id="numEpochs" value="1"> <br>
       Enter the batch size : <input type="number" id="batchSize" value="1">
     </p>
     <center><button type="button" onclick="trainModel()">Train</button></center>
+    <center><button type="button" onclick="saveModel()">Save Model</button></center>
+
+    <center><b><font size="7">Load Model</font></b></center>
+    <center> <input type="file" id="upload-json">Upload Model JSON</center>
+    <center> <input type="file" id="upload-weights">Upload Model Weights</center>
+    <center> <button type="button" onclick="loadedModelSummary()">Model Summary</button></center>
+
     <center><b><font size="7">Testing</font></b></center>
     <!---
     <center><button type="button" onclick="erase()">Clear Canvas</button></center> <br>
